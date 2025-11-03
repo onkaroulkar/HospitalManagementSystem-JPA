@@ -52,20 +52,76 @@ public class Patient {
     @OneToMany(mappedBy = "patient",fetch = FetchType.EAGER,cascade = {CascadeType.REMOVE},orphanRemoval = true)
     private List<Appointment> appointment = new ArrayList<>();
 
-    public void setInsurance(Insurance insurance) {
-        this.insurance = insurance;
+    public Long getId() {
+        return id;
     }
 
-    public void setAppointment(List<Appointment> appointment) {
-        this.appointment = appointment;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public BloodGroupType getBloodGroup() {
+        return bloodGroup;
+    }
+
+    public void setBloodGroup(BloodGroupType bloodGroup) {
+        this.bloodGroup = bloodGroup;
+    }
+
+    public Insurance getInsurance() {
+        return insurance;
+    }
+
+    public void setInsurance(Insurance insurance) {
+        this.insurance = insurance;
     }
 
     public List<Appointment> getAppointment() {
         return appointment;
     }
 
-    public Long getId() {
-        return id;
+    public void setAppointment(List<Appointment> appointment) {
+        this.appointment = appointment;
     }
 
     @Override

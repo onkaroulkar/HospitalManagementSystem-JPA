@@ -13,16 +13,10 @@ import org.springframework.stereotype.Service;
 public class InsuranceService {
 
     @Autowired
-    private final InsuranceRepository insuranceRepository;
+    private InsuranceRepository insuranceRepository;
 
     @Autowired
-    private final PatientRepository patientRepository;
-
-    public InsuranceService(InsuranceRepository insuranceRepository, PatientRepository patientRepository) {
-        this.insuranceRepository = insuranceRepository;
-        this.patientRepository = patientRepository;
-    }
-
+    private PatientRepository patientRepository;
 
     @Transactional
     public Patient assignInsuranceToPatient(Insurance insurance, Long patientId){

@@ -1,9 +1,7 @@
 package com.onkar.hospitalManagement.entity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -11,6 +9,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Builder
 public class Appointment {
 
     @Id
@@ -31,11 +30,7 @@ public class Appointment {
     @JoinColumn(name = "doctor_id",nullable = false)// doctor is required and not null
     private Doctor doctor;
 
-    public  Appointment(){}
-
-    public Appointment(LocalDateTime appointmentTime, String reason) {
-        this.appointmentTime = appointmentTime;
-        this.reason = reason;
+    public Appointment(String reason, LocalDateTime appointmentTime) {
     }
 
     public void setPatient(Patient patient) {
@@ -48,5 +43,8 @@ public class Appointment {
 
     public Long getId() {
         return id;
+    }
+    
+    public Appointment() {
     }
 }
