@@ -1,9 +1,9 @@
 package com.onkar.hospitalManagement.entity;
 
+import com.onkar.hospitalManagement.type.AuthProviderType;
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -18,14 +18,18 @@ public class User implements UserDetails {
     @Column(unique = true, nullable = false)
     private String username;
 
-    @Column(nullable = false)
+    @Column
     private String password;
+
+    private String providerId;
+
+    @Enumerated(EnumType.STRING)
+    private AuthProviderType authProviderType;
 
     public User() {}
 
-    public User(String username, String password) {
+    public User(String username) {
         this.username = username;
-        this.password = password;
     }
 
     public int getId() { return id; }
@@ -35,12 +39,28 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return username;  // ✅ return actual username
+        return username;  // return actual username
     }
 
     @Override
     public String getPassword() {
-        return password;  // ✅ return actual password
+        return password;  // return actual password
+    }
+
+    public String getProviderId() {
+        return providerId;
+    }
+
+    public void setProviderId(String providerId) {
+        this.providerId = providerId;
+    }
+
+    public AuthProviderType getAuthProviderType() {
+        return authProviderType;
+    }
+
+    public void setAuthProviderType(AuthProviderType authProviderType) {
+        this.authProviderType = authProviderType;
     }
 
     @Override

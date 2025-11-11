@@ -1,0 +1,13 @@
+spring:
+  security.oauth2.client:
+    registration:
+      google:
+        client-id: 1091474691795-hno1h1eic00fq5kd84nda1kcc5lvstde.apps.googleusercontent.com
+        client-secret: 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
+      github:
+        client-id: klflkdsfl
+        client-secret: lkfldfllkf
+
+
+  main:
+    allow-circular-references: true
